@@ -18,6 +18,7 @@ public class Main   {
         try {
             Scanner file_scanner = new Scanner(file);
 
+            /*
             num_acc = file_scanner.nextInt();
             num_friends = file_scanner.nextInt();
 
@@ -28,7 +29,7 @@ public class Main   {
             System.out.print("Enter your choice: ");
 
             choice = scn.nextInt();
-
+            */
             // proceed with menu features
 
             
