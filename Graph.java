@@ -35,6 +35,8 @@ public class Graph {
         for(int i = 0; i < friends.size(); i++) {
             System.out.print(friends.get(i) + " ");
         }
+
+        System.out.println();
     }
 
     public ArrayList<Integer> getFriends(int user)  {
