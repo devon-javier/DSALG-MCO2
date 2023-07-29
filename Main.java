@@ -7,7 +7,6 @@ public class Main   {
     public static void main(String[] args) {
 
         int choice, num_acc, num_friends;
-        String line;
     
         Scanner scn = new Scanner(System.in);
         System.out.print("Enter file path: ");
@@ -21,13 +20,29 @@ public class Main   {
             num_acc = file_scanner.nextInt();
             num_friends = file_scanner.nextInt();
 
-            // Initialize data into graph, if graph loaded then continue
+            Graph graph = new Graph(num_acc, num_friends);
+
+            graph.storeData(file_scanner);
 
             System.out.println("Graph loaded!");
             System.out.println("MAIN MENU:\n[1] Get friend list\n[2] Get connection\n[3] Exit\n");
             System.out.print("Enter your choice: ");
 
-            //choice = scn.nextInt();
+            choice = scn.nextInt();
+
+            switch(choice)  {
+                case 1:
+                    System.out.print("Enter Account Number: ");
+                    choice = scn.nextInt();
+                    graph.displayFriends(choice);
+                    break;
+                case 2:
+                    break;
+                case 3:
+                    break;
+                default:
+                    break;
+            }
             
             // proceed with menu features
 
