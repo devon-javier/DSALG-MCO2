@@ -1,12 +1,13 @@
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main   {
 
     public static void main(String[] args) {
 
-        int choice, num_acc, num_friends;
+        int choice, choice2, num_acc, num_friends;
         boolean exit = false;
     
         Scanner scn = new Scanner(System.in);
@@ -47,10 +48,30 @@ public class Main   {
                         
                         break;
                     case 2:
+                        System.out.print("Enter Account Number (1): ");
+                        choice = scn.nextInt();
+                        System.out.print("Enter Account Number (2): ");
+                        choice2 = scn.nextInt();
+
+                        ArrayList<Integer> connection = graph.breadthFirstSearch(choice, choice2);
+
+                        if(connection.isEmpty())    {
+                            System.out.println("Cannot find a connection between " + choice + " and " + choice2);
+                        } else {
+                            System.out.println("There is a connection between " + choice + " and " + choice2 + "!");
+
+                            for(int i = 0; i < connection.size()-1; i++)  {
+                                System.out.println(connection.get(i) + " is friends with " + connection.get(i+1));
+                            }
+
+                            System.out.println();
+                        }
                         break;
                     case 3:
+                        exit = true;
                         break;
                     default:
+                        System.out.println("Invalid option");
                         break;
                 }
 
