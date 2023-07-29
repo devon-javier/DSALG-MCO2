@@ -37,7 +37,7 @@ public class Graph {
             System.out.print(friends.get(i) + " ");
         }
 
-        System.out.println();
+        System.out.println("\n");
     }
 
     public ArrayList<Integer> getFriends(int user)  {
