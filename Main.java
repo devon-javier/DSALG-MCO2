@@ -37,7 +37,7 @@ public class Main   {
 
                 switch(choice)  {
                     case 1:
-                        System.out.print("Enter Account Number: ");
+                        System.out.print("Enter ID of person: ");
                         choice = scn.nextInt();
 
                         try {
@@ -48,9 +48,9 @@ public class Main   {
                         
                         break;
                     case 2:
-                        System.out.print("Enter Account Number (1): ");
+                        System.out.print("Enter ID of first person: ");
                         choice = scn.nextInt();
-                        System.out.print("Enter Account Number (2): ");
+                        System.out.print("Enter ID of second person: ");
                         choice2 = scn.nextInt();
 
                         ArrayList<Integer> connection = graph.breadthFirstSearch(choice, choice2);
@@ -76,12 +76,6 @@ public class Main   {
                 }
 
             } while (exit == false);
-
-            
-            // proceed with menu features
-
-            
-
             
         } catch (FileNotFoundException e)   {
             System.err.println("File not found.");
