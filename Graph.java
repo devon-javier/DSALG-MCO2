@@ -64,7 +64,7 @@ public class Graph {
 
         visited[root] = true;
         queue.add(root);
-        previousAccounts[root] = -1;           // -1 to signify root node
+        previousAccounts[root] = -1;                // -1 to signify root node
 
 
         while(queue.isEmpty() == false) {

@@ -47,7 +47,7 @@ public class Main   {
                             endTime = System.currentTimeMillis();
 
                             System.out.println("\nFinal Time: " + (endTime - startTime) + "\n");
-                        } catch(Exception e) {
+                        } catch(IndexOutOfBoundsException e) {
                             System.out.println("User not found");
                         }
                         
@@ -58,11 +58,16 @@ public class Main   {
                         System.out.print("Enter ID of second person: ");
                         choice2 = scn.nextInt();
 
-                        startTime = System.currentTimeMillis();
-                        ArrayList<Integer> connection = graph.breadthFirstSearch(choice, choice2);
-                        endTime = System.currentTimeMillis();
+                        ArrayList<Integer> connection = new ArrayList<Integer>();
 
-                        System.out.println("\nFinal Time: " + (endTime - startTime) + "\n");
+                        try {
+                            startTime = System.currentTimeMillis();
+                            connection = graph.breadthFirstSearch(choice, choice2);
+                            endTime = System.currentTimeMillis();
+                            System.out.println("\nFinal Time: " + (endTime - startTime) + "\n");
+                        } catch(IndexOutOfBoundsException e) {
+                            System.out.println("One of the users cannot be found");
+                        }
 
                         if(connection.isEmpty())    {
                             System.out.println("Cannot find a connection between " + choice + " and " + choice2);
