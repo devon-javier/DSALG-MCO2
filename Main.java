@@ -8,6 +8,7 @@ public class Main   {
     public static void main(String[] args) {
 
         int choice, choice2, num_acc, num_friends;
+        long startTime, endTime;
         boolean exit = false;
     
         Scanner scn = new Scanner(System.in);
@@ -41,7 +42,11 @@ public class Main   {
                         choice = scn.nextInt();
 
                         try {
-                           graph.displayFriends(choice); 
+                            startTime = System.currentTimeMillis();
+                            graph.displayFriends(choice); 
+                            endTime = System.currentTimeMillis();
+
+                            System.out.println("\nFinal Time: " + (endTime - startTime) + "\n");
                         } catch(Exception e) {
                             System.out.println("User not found");
                         }
@@ -53,7 +58,11 @@ public class Main   {
                         System.out.print("Enter ID of second person: ");
                         choice2 = scn.nextInt();
 
+                        startTime = System.currentTimeMillis();
                         ArrayList<Integer> connection = graph.breadthFirstSearch(choice, choice2);
+                        endTime = System.currentTimeMillis();
+
+                        System.out.println("\nFinal Time: " + (endTime - startTime) + "\n");
 
                         if(connection.isEmpty())    {
                             System.out.println("Cannot find a connection between " + choice + " and " + choice2);
@@ -76,12 +85,11 @@ public class Main   {
                 }
 
             } while (exit == false);
-            
+
         } catch (FileNotFoundException e)   {
             System.err.println("File not found.");
         }
         
-
         scn.close();
 
 
